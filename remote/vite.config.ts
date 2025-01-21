@@ -15,18 +15,20 @@ export default defineConfig({
   ],
   build: {
     target: "esnext",
+    modulePreload: false,
+    cssCodeSplit: false,
     // [commet start]
     lib: {
       entry: "src/index.ts",
       fileName: "index",
       formats: ["es"],
     },
-    rollupOptions: {
-      external: ["react", "react-dom"],
-    },
     // [commet end]
   },
   preview: {
     cors: true,
+  },
+  define: {
+    "process.env": {},
   },
 });
